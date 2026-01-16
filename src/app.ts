@@ -20,7 +20,7 @@ app.post("/message", (req, res) => {
 
     const twiml = new twilio.twiml.MessagingResponse();
 
-    twiml.message("Hello");
+    twiml.message("Hello Malcolm");
 
     res.type("text/xml");
     res.send(twiml.toString());
