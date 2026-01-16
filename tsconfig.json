@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [
-      "node"
-    ],
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "rootDir": "src",
+    "outDir": "dist",
     "strict": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
-  }
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "sourceMap": false
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
