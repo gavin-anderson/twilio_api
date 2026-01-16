@@ -1,13 +1,13 @@
 import express from 'express';
-import bodyParser from "body-parser";
 import twilio from "twilio";
 
 
 const app = express()
-const port = 3000
+const port = Number(process.env.PORT) || 3000;
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
+
 
 app.post("/message", (req, res) => {
 
