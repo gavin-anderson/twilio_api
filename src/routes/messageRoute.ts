@@ -1,11 +1,11 @@
 import { Router } from "express";
 import twilio from "twilio";
 import { modelReplyService } from "../services/modelReplyService.js";
-import { validateTwilio } from "../middleware/validateTwilio.js";
+// import { validateTwilio } from "../middleware/validateTwilio.js";
 
 const router = Router();
 
-router.post("/message", validateTwilio, async (req, res) => {
+router.post("/message", async (req, res) => {
     const twiml = new twilio.twiml.MessagingResponse();
 
     try {
