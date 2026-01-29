@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test:reply": "tsx src/scripts/testModelReply.ts",
+    "test:store": "tsx src/scripts/testStoreInboundMessage.ts",
     "dev": "tsx watch src/app.ts",
     "build": "rm -rf dist && tsc",
     "start": "node dist/app.js",
@@ -18,11 +18,13 @@
     "@google/genai": "^1.37.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "pg": "^8.17.2",
     "twilio": "^5.11.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.5",
+    "@types/pg": "^8.16.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
