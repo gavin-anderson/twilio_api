@@ -1,5 +1,5 @@
 // services/storeInboundMessage.ts
-import { pool } from "../db/pool";
+import { pool } from "../db/pool.js";
 
 type StoreInboundParams = {
     provider: "twilio";
