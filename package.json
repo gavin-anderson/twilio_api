@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test:store": "tsx src/scripts/testStoreInboundMessage.ts",
+    "test:store": "tsx src/scripts/testInsertInbound.ts",
     "dev": "tsx watch src/app.ts",
     "build": "rm -rf dist && tsc",
     "start": "node dist/app.js",

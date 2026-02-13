@@ -9,6 +9,10 @@ build/
 .env
 .env.*.local
 
+# MCP config (contains secrets)
+.claude/
+.mcp.json
+
 # Logs
 logs
 *.log
