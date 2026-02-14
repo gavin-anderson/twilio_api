@@ -2,7 +2,7 @@ name: Deploy to Heroku
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
 
 jobs:
   build:
@@ -27,9 +27,21 @@ jobs:
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
+      - name: Select Heroku app for branch
+        id: app
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            echo "HEROKU_APP_NAME=${{ secrets.HEROKU_APP_NAME_MAIN }}" >> $GITHUB_ENV
+          elif [ "${GITHUB_REF_NAME}" = "dev" ]; then
+            echo "HEROKU_APP_NAME=${{ secrets.HEROKU_APP_NAME_DEV }}" >> $GITHUB_ENV
+          else
+            echo "Unsupported branch: ${GITHUB_REF_NAME}"
+            exit 1
+          fi
+
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.13.15
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_app_name: ${{ env.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
